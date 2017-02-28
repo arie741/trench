@@ -1,0 +1,24 @@
+.text-center {
+	text-align: center;
+}
+
+.log-panels {
+	margin-top:20px;
+}
+
+.login-panel {
+	background-color: #c4c8ce;
+	border-radius: 5px;
+	padding:60px 20px 60px 20px;
+}
+
+@media screen and (min-width: 768px){
+	.log-panels {
+		margin-bottom: 180px;
+	}	
+
+	.login-panel {
+		margin-top:100px;
+	}
+
+}
