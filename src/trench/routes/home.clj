@@ -21,7 +21,17 @@
   [:div#content]
   [])
 
+(defsnippet sessionpage "trench/views/session.html"
+  [:div#content]
+  [])
+
 (defroutes app-routes
-  (GET "/" [] (page loginpage))
-  (GET "/home" [] (page homepage))
+  (GET "/" [] 
+    (page loginpage))
+  (POST "/login-action" request
+    (str request))
+  (GET "/home" [] 
+    (page homepage))
+  (GET "/session" [] 
+    (page sessionpage))
   (route/not-found "Not Found"))

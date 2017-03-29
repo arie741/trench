@@ -8,7 +8,8 @@
                  [clj-postgresql "0.4.0"]
                  [enlive "1.1.6"]
                  [hiccup "1.0.5"]
-                 [lib-noir "0.9.9"]]
+                 [lib-noir "0.9.9"]
+                 [clojurewerkz/scrypt "1.2.0"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler trench.handler/app}
   :profiles

@@ -12,6 +12,10 @@
 	padding:60px 20px 60px 20px;
 }
 
+.questionrow button {
+	width:100%;
+}
+
 @media screen and (min-width: 768px){
 	.log-panels {
 		margin-bottom: 180px;
@@ -21,4 +25,11 @@
 		margin-top:100px;
 	}
 
+	.questionrow {
+	margin-top:150px;
+	}
+
 }
+
+
+

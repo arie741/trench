@@ -1,16 +1,16 @@
 <div id="content" class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 login-panel">
-			<form>
+			<form action="/login-action" method="POST">
 				<div class="form-group">
 					<label for="lusername">Username</label>
-					<input type="text" class="form-control" id="lusername" placeholder="Username" maxlength="15">
+					<input name="uname" type="text" class="form-control" id="lusername" placeholder="Username" maxlength="15">
 				</div>
 				<div class="form-group">
 					<label for="lpassword">Password</label>
-					<input type="password" class="form-control" id="lpassword" placeholder="Password" maxlength="15" >
+					<input name="upass" type="password" class="form-control" id="lpassword" placeholder="Password" maxlength="15" >
 				</div>
-				<button type="submit" class="btn btn-default">Login</button>
+				<button type="submit" class="btn btn-default center-block">Login</button>
 			</form>
 		</div>
 	</div>
