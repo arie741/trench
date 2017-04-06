@@ -11,3 +11,7 @@
 ;encrypt-value 16384 8 1
 
 (def data (sc/encrypt "asdsada" 16384 8 1))
+
+;db query
+(def contentdb 
+	(jdbc/query db ["SELECT * FROM CONTENT"]))
