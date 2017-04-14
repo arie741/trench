@@ -27,8 +27,11 @@
   [qid qs1 qs2 & qclass]
   [:div.questionrow] (html/set-attr 
                             :id (str "q" qid) 
-                            :class (str "row questionrow " (apply str qclass))
-                            :onclick (str "next(" qid ")"))
+                            :class (str "row questionrow " (apply str qclass)))
+  [:button.ans-1] (html/set-attr
+                            :onclick (str "next(" qid ",1)"))
+  [:button.ans-2] (html/set-attr
+                            :onclick (str "next(" qid ",2)"))
   [:h4.qs1] (html/content (str qs1))
   [:h4.qs2] (html/content (str qs2)))
 
