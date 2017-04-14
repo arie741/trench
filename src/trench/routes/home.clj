@@ -50,6 +50,9 @@
     (page homepage))
   (GET "/session" [] 
     (page sessionpage))
-  (GET "/query" []
+  (GET "/querydb" []
     (apply str db/contentdb))
+  (GET "/session/:canswers" [canswers]
+    (let [resu (db/checkans canswers)]
+      (str (group-by identity resu))))
   (route/not-found "Not Found"))

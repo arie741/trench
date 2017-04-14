@@ -15,3 +15,12 @@
 ;db query
 (def contentdb 
 	(jdbc/query db ["SELECT * FROM CONTENT"]))
+
+;db functions
+(defn choans [an]
+	(if (= an \1)
+		(keyword "answer1")
+		(keyword "answer2")))
+
+(defn checkans [answers]
+	(map #((choans %2) %1) contentdb answers))
