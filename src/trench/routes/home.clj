@@ -13,7 +13,7 @@
 ;;Helper funcitons
 (defn fv [v m]
   (if (find m v) 
-    (find m v)
+    ((find m v) 1)
     0))
 ;;Templates
 
@@ -54,8 +54,25 @@
   [:div#content]
   [re rk rf rw rn rg ra rl rp ri rt rv rx rs rb ro rr rd rc rz]
   [:div#re] (html/content (str "Pengendalian emosi: " re))
-  [:div#rp] (html/content (str "Mengendalikan ornag lain: " rp))
-  [:div#rg] (html/content (str "Peranan sebagai pekerja keras: " rg)))
+  [:div#rk] (html/content (str "Agressi: " rk))
+  [:div#rf] (html/content (str "Dukungan dari atasan: " rf))
+  [:div#rw] (html/content (str "Kebut, taat pada aturan pengarahan: " rw))
+  [:div#rn] (html/content (str "Menyelesaikan tugas secara pribadi: " rn))
+  [:div#rg] (html/content (str "Peranan sebagai pekerja keras: " rg))
+  [:div#ra] (html/content (str "Hasrat untuk berprestasi: " ra))
+  [:div#rl] (html/content (str "Peranan sebagai pimpinan: " rl))
+  [:div#rp] (html/content (str "Mengendalikan orang lain: " rp))
+  [:div#ri] (html/content (str "Mudah dalam membuat keputusan: " ri))
+  [:div#rt] (html/content (str "Tipe selalu sibuk: " rt))
+  [:div#rv] (html/content (str "Tipe orang yang bersemangat: " rv))
+  [:div#rx] (html/content (str "Untuk mendapat perhatian: " rx))
+  [:div#rs] (html/content (str "Pergaulan luas: " rs))
+  [:div#rb] (html/content (str "Kebutuhan betah terhadap kelompok: " rb))
+  [:div#ro] (html/content (str "Kebutuhan untuk mendekati dan menyayangi: " ro))
+  [:div#rr] (html/content (str "Tipe Teoritikal: " rr))
+  [:div#rd] (html/content (str "Suka pekerjaan yang terperinci: " rd))
+  [:div#rc] (html/content (str "Tipe pengatur: " rc))
+  [:div#rz] (html/content (str "Hasrat untuk berubah: " rz)))
 
 (defroutes app-routes
   (GET "/" [] 
