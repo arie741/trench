@@ -10,6 +10,13 @@
     [clojure.java.io :as cio]
     [trench.routes.db :as db]))
 
+;;Helper funcitons
+(defn fv [v m]
+  (if (find m v) 
+    (find m v)
+    0))
+;;Templates
+
 (deftemplate page "trench/views/layout.html"
   [content]
   [:content] (html/content (content)))
@@ -41,6 +48,15 @@
   [:div#qtemplate] (html/content (map #(qsnippet (:qnumber %) (:question1 %) (:question2 %) "hidden") db/contentdb))
   [:div#q1] (html/remove-class "hidden"))
 
+;whole sequence re rk rf rw rn rg ra rl rp ri rt rv rx rs rb ro rr rd rc rz
+
+(defsnippet resultpage "trench/views/result.html"
+  [:div#content]
+  [re rk rf rw rn rg ra rl rp ri rt rv rx rs rb ro rr rd rc rz]
+  [:div#re] (html/content (str "Pengendalian emosi: " re))
+  [:div#rp] (html/content (str "Mengendalikan ornag lain: " rp))
+  [:div#rg] (html/content (str "Peranan sebagai pekerja keras: " rg)))
+
 (defroutes app-routes
   (GET "/" [] 
     (page loginpage))
@@ -53,6 +69,27 @@
   (GET "/querydb" []
     (apply str db/contentdb))
   (GET "/session/:canswers" [canswers]
-    (let [resu (db/checkans canswers)]
-      (str (group-by identity resu))))
+    (let [resu (db/checkans canswers)
+          sorted-res (frequencies resu)]
+      (page #(resultpage 
+                (fv "E" sorted-res) 
+                (fv "K" sorted-res)
+                (fv "F" sorted-res) 
+                (fv "W" sorted-res) 
+                (fv "N" sorted-res) 
+                (fv "G" sorted-res) 
+                (fv "A" sorted-res) 
+                (fv "L" sorted-res) 
+                (fv "P" sorted-res) 
+                (fv "I" sorted-res) 
+                (fv "T" sorted-res) 
+                (fv "V" sorted-res) 
+                (fv "X" sorted-res) 
+                (fv "S" sorted-res) 
+                (fv "B" sorted-res) 
+                (fv "O" sorted-res) 
+                (fv "R" sorted-res) 
+                (fv "D" sorted-res)  
+                (fv "C" sorted-res) 
+                (fv "Z" sorted-res)))))
   (route/not-found "Not Found"))
